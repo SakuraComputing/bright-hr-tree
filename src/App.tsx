@@ -1,26 +1,18 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { root } from './files';
+import Folder from './Folder/Folder';
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div>
+      <header>
+        Bright HR Tree        
+        <div style={{ padding: '10px' }}>
+          {root.files?.map((folder, i) => (
+            <Folder key={i} folder={folder} depth={1}/>
+          ))}
+        </div>
       </header>
     </div>
   );
-}
-
-export default App;
+};

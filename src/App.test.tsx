@@ -2,8 +2,20 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
-});
+const createTestables = (() => render(<App />));
+
+describe('./App.tsx', () => {
+  it('should render the project title', () => {
+    createTestables();
+    const title = screen.getByText(/Bright HR Tree/i);
+    expect(title).toBeInTheDocument();
+  });
+
+  it('should render the following directories', () => {
+    createTestables();
+    const doc1 = screen.getByText('Employee Handbook');
+    expect(doc1).toBeInTheDocument();
+  })  
+
+  
+})
