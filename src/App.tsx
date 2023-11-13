@@ -4,7 +4,7 @@ import Folder from './Folder/Folder';
 
 export default function App() {
   return (
-    <div>
+    <div className='container'>
       <header>
         Bright HR Tree        
         <div style={{ padding: '10px' }}>

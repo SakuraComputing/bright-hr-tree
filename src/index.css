@@ -33,3 +33,7 @@ button {
 .name {
   font-size: 1rem;
 }
+
+.container {
+  margin: 3em;
+}
