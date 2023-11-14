@@ -1,7 +1,7 @@
 import React from 'react';
 import { fireEvent, render, screen } from '@testing-library/react';
 import Folder from './Folder';
-import { IFiles } from '../files';
+import { IFiles } from '../../files';
 
 describe('./Folder', () => {
 
@@ -23,7 +23,6 @@ describe('./Folder', () => {
         render(<Folder folder={root} depth={1}/>);
         expect(screen.getByText('root')).toBeInTheDocument();
     });
-
 
     it('should show expanded files when button clicked', () => {
         render(<Folder folder={root} depth={1}/>);

@@ -11,6 +11,11 @@ describe('./App.tsx', () => {
     expect(title).toBeInTheDocument();
   });
 
+  it('should show the filter place holder', () => {
+    createTestables();
+    expect(screen.getByPlaceholderText('Filter by')).toBeInTheDocument();
+  })
+
   it('should render the following directories', () => {
     createTestables();
     const doc1 = screen.getByText('Employee Handbook');

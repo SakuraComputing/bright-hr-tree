@@ -2,7 +2,7 @@ export type IFiles = {
     type: string;
     name: string;
     files?: IFiles[];
-    added: string;
+    added?: string;
   }
 
 export const root: IFiles = {
