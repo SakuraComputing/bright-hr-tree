@@ -3,9 +3,10 @@ import { fireEvent, render, screen } from '@testing-library/react';
 import FolderContainer from './FolderContainer';
 
 describe('/FolderContainer', () => {
-    it('should render root files correctly', () => {
+    it('should render root files correctly including date', () => {
         render(<FolderContainer />);
         expect(screen.getByText('Employee Handbook')).toBeInTheDocument();
+        expect(screen.getByText('2017-01-06')).toBeInTheDocument();
     });
 
     it('should display a placeholder', () => {
