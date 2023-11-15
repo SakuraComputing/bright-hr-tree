@@ -21,6 +21,4 @@ describe('./App.tsx', () => {
     const doc1 = screen.getByText('Employee Handbook');
     expect(doc1).toBeInTheDocument();
   })  
-
-  
 })
