@@ -5,6 +5,8 @@ export type IFiles = {
     added?: string;
   }
 
+export type SortOption = 'name' | 'added' | 'type'; 
+
 export const root: IFiles = {
     type: "folder",
     name: "root",

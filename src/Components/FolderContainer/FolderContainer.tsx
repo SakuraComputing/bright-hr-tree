@@ -1,20 +1,7 @@
 import React, { useState } from 'react';
 import { IFiles, root } from './../../files';
 import Folder from './../../Components/Folder/Folder';
-
-function filter(array: IFiles[], name: string): IFiles[] {
-    return array.reduce((r: IFiles[], { files = [], ...o }: IFiles) => {
-        if (o.name.toLowerCase().includes(name.toLowerCase())) {
-            r.push(o);
-            return r;
-        }
-        files = filter(files, name);
-        if (files.length) {
-            r.push(Object.assign(o, { files }));
-        }
-        return r;
-    }, []);
-}
+import { filterTree } from '../../Helpers/TreeHelpers';
 
 const FolderContainer: React.FC = () => {
 
@@ -25,7 +12,7 @@ const FolderContainer: React.FC = () => {
         const filterText = e.target.value;
 
         if (filterText && root.files) {
-            const newTree: IFiles = { type: 'folder', name: 'root', files: filter(root.files?.filter((file => file.name.toLowerCase().includes((filterText).toLowerCase()))), filterText.toLowerCase())};
+            const newTree: IFiles = { type: 'folder', name: 'root', files: filterTree(root.files?.filter((file => file.name.toLowerCase().includes((filterText).toLowerCase()))), filterText.toLowerCase())};
             setTree(newTree);
         } else {
             setTree(root);
