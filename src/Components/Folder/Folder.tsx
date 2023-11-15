@@ -8,7 +8,7 @@ interface FolderProps {
 
 const Folder: React.FC<FolderProps> = ({ folder, depth }): ReturnType<React.FC> => {
 
-    const [ isExpanded, setIsExpanded ] = useState(false);
+    const [ isExpanded, setIsExpanded ] = useState(true);
 
     return (
       <div>

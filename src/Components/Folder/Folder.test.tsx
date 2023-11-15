@@ -26,7 +26,7 @@ describe('./Folder', () => {
 
     it('should show expanded files when button clicked', () => {
         render(<Folder folder={root} depth={1}/>);
-        const folder = screen.getByTestId('folder-button');
+        const folder = screen.getAllByTestId('folder-button')[1];
         fireEvent.click(folder);
 
         expect(screen.getByText('Employee Handbook')).toBeInTheDocument();
