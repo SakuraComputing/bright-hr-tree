@@ -8,7 +8,7 @@ const FolderContainer: React.FC = () => {
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {    
         if (e.target.value) {
-            const newTree: IFiles = { type: 'folder', name: 'root', files: root.files?.filter((file => file.name.toLowerCase().includes(e.target.value)))};
+            const newTree: IFiles = { type: 'folder', name: 'root', files: root.files?.filter((file => file.name.toLowerCase().includes((e.target.value).toLowerCase())))};
             setTree(newTree);
         } else {
             setTree(root);

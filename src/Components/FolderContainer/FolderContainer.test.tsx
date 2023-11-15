@@ -1,5 +1,5 @@
 import React from 'react';
-import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import FolderContainer from './FolderContainer';
 
 describe('/FolderContainer', () => {
@@ -13,18 +13,14 @@ describe('/FolderContainer', () => {
         expect(screen.getByPlaceholderText('Filter by')).toBeInTheDocument();
     });
 
-    // it('should filter container contents', async () => {
-    //     render(<FolderContainer />);
-    //     expect(screen.getByText('Employee Handbook')).toBeInTheDocument();
+    it('should filter container contents', async () => {
+        render(<FolderContainer />);
+        expect(screen.getByText('Employee Handbook')).toBeInTheDocument();
 
-    //     console.error(document.body.innerHTML)
+        const inputBox = screen.getByTestId('filter-input');
+        fireEvent.change(inputBox, { target: { value: 'Cost'}});
 
-    //     const handleChange = jest.fn();
-
-    //     const inputBox = screen.getByTestId('filter-input');
-    //     fireEvent.change(inputBox, { target: { value: 'P'}});
-
-    //     expect(handleChange).toHaveBeenCalled();
-
-    // })
+        
+        expect(screen.getByText('Cost centres')).toBeInTheDocument();
+    })
 });
