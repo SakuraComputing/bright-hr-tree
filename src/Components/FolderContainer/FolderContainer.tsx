@@ -25,7 +25,7 @@ const FolderContainer: React.FC = () => {
         const filterText = e.target.value;
 
         if (filterText && root.files) {
-            const newTree: IFiles = { type: 'folder', name: 'root', files: filter(root.files?.filter((file => file.name.toLowerCase().includes((filterText).toLowerCase()))), filterText)};
+            const newTree: IFiles = { type: 'folder', name: 'root', files: filter(root.files?.filter((file => file.name.toLowerCase().includes((filterText).toLowerCase()))), filterText.toLowerCase())};
             setTree(newTree);
         } else {
             setTree(root);
